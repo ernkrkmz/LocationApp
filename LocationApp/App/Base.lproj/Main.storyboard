@@ -75,7 +75,6 @@
                                     <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="btnLoginClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yAw-6k-IuN"/>
                                     <segue destination="G7K-dx-1nE" kind="show" identifier="toRegisterVC" id="X0P-ym-FcY"/>
                                 </connections>
                             </button>
@@ -176,6 +175,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="btnLoginClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dRg-Ya-X26"/>
+                                    <action selector="btnRegisterClicked:" destination="G7K-dx-1nE" eventType="touchUpInside" id="vao-KZ-OwI"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FCS-V9-Cb8">
@@ -215,6 +215,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DD2-p7-Ogg"/>
+                    <connections>
+                        <outlet property="btnRegister" destination="VEv-Jr-nGn" id="AiD-J1-cS0"/>
+                        <outlet property="txtConfirmPass" destination="FCS-V9-Cb8" id="VIW-he-HVp"/>
+                        <outlet property="txtEmail" destination="qpF-SW-LiZ" id="YZo-1l-a2G"/>
+                        <outlet property="txtPassword" destination="3BJ-gj-qer" id="Lty-OW-Iff"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7bJ-Hk-qrn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
