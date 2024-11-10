@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Image references" minToolsVersion="12.0"/>
@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bg" translatesAutoresizingMaskIntoConstraints="NO" id="ptO-On-9Qo">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="0.0" y="-59" width="393" height="970"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJa-jC-qbd">
-                                <rect key="frame" x="57" y="430" width="279" height="44"/>
+                                <rect key="frame" x="57" y="371" width="279" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="maC-Lt-xKJ"/>
                                 </constraints>
@@ -35,7 +35,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBv-ai-zeB">
-                                <rect key="frame" x="57" y="490" width="279" height="44"/>
+                                <rect key="frame" x="57" y="431" width="279" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="6yP-Hr-NaV"/>
                                 </constraints>
@@ -49,23 +49,23 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin" translatesAutoresizingMaskIntoConstraints="NO" id="OHP-WU-VcD">
-                                <rect key="frame" x="130" y="81" width="141" height="141"/>
+                                <rect key="frame" x="130" y="22" width="141" height="141"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="141" id="jfG-Kl-cQw"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rpL-1v-bhg">
-                                <rect key="frame" x="57" y="289" width="279" height="34"/>
+                                <rect key="frame" x="57" y="230" width="279" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ecU-zj-UKl">
-                                <rect key="frame" x="57" y="339" width="279" height="34"/>
+                                <rect key="frame" x="57" y="280" width="279" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="74D-7p-Mmo">
-                                <rect key="frame" x="57" y="768" width="279" height="44"/>
+                                <rect key="frame" x="57" y="802" width="279" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="hl8-To-Bb8"/>
                                 </constraints>
@@ -229,7 +229,7 @@
         <!--Map-->
         <scene sceneID="mI3-7f-bWS">
             <objects>
-                <viewController id="o12-kj-iqY" sceneMemberID="viewController">
+                <viewController id="o12-kj-iqY" customClass="MapVC" customModule="LocationApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xN4-YD-4QI">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -251,10 +251,13 @@
                     <tabBarItem key="tabBarItem" title="Map" selectedImage="pin.circle" catalog="system" id="WHh-mj-Wvp">
                         <imageReference key="image" image="pin.circle" catalog="system" renderingMode="template"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="mapView" destination="MGE-9T-zwU" id="u7K-QR-6Nu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xK9-wk-vii" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1603.8167938931297" y="408.45070422535213"/>
+            <point key="canvasLocation" x="1576" y="411"/>
         </scene>
         <!--Social-->
         <scene sceneID="TSS-hv-gTn">
@@ -275,18 +278,47 @@
         <!--Settings-->
         <scene sceneID="m5d-04-y8l">
             <objects>
-                <viewController id="3KW-iJ-KzQ" sceneMemberID="viewController">
+                <viewController id="3KW-iJ-KzQ" customClass="SettingsVC" customModule="LocationApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RgB-qU-qCx">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXA-m4-uQw">
+                                <rect key="frame" x="63" y="119" width="266" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4B-oy-bHy">
+                                <rect key="frame" x="146" y="727" width="100" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Log out"/>
+                                <connections>
+                                    <action selector="btnLogoutClicked:" destination="3KW-iJ-KzQ" eventType="touchUpInside" id="2Qe-a3-OZH"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="hvi-rb-Nkd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HXA-m4-uQw" firstAttribute="top" secondItem="hvi-rb-Nkd" secondAttribute="top" constant="119" id="09O-f0-mQ2"/>
+                            <constraint firstItem="HXA-m4-uQw" firstAttribute="centerX" secondItem="RgB-qU-qCx" secondAttribute="centerX" id="4EX-Bp-TuJ"/>
+                            <constraint firstItem="HXA-m4-uQw" firstAttribute="centerX" secondItem="d4B-oy-bHy" secondAttribute="centerX" id="4QN-li-gi1"/>
+                            <constraint firstItem="hvi-rb-Nkd" firstAttribute="bottom" secondItem="d4B-oy-bHy" secondAttribute="bottom" constant="41" id="MGe-z2-SfC"/>
+                            <constraint firstItem="HXA-m4-uQw" firstAttribute="leading" secondItem="hvi-rb-Nkd" secondAttribute="leading" constant="63" id="NIV-lQ-5dn"/>
+                            <constraint firstItem="d4B-oy-bHy" firstAttribute="leading" secondItem="hvi-rb-Nkd" secondAttribute="leading" constant="146" id="sFr-1G-Ao0"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="gearshape" catalog="system" selectedImage="gearshape" id="NzH-zQ-UmA"/>
+                    <connections>
+                        <outlet property="btnLogout" destination="d4B-oy-bHy" id="4D2-0P-6sU"/>
+                        <outlet property="lblEmail" destination="HXA-m4-uQw" id="Iu4-Jl-Yv2"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="toLoginVC" modalPresentationStyle="fullScreen" id="R1p-Re-g5v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f8n-fu-DdY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2406" y="-152"/>
+            <point key="canvasLocation" x="2403.8167938931297" y="-152.11267605633805"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="6LE-jw-bsZ">

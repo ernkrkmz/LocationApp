@@ -15,6 +15,8 @@
 		70EB0FDB2CDEAB740010706C /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 70EB0FDA2CDEAB740010706C /* FirebaseFirestoreCombine-Community */; };
 		70EB0FDD2CDEAB740010706C /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 70EB0FDC2CDEAB740010706C /* FirebaseStorage */; };
 		70EB0FDF2CDEAB740010706C /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 70EB0FDE2CDEAB740010706C /* FirebaseStorageCombine-Community */; };
+		70EB10322CE0CE6E0010706C /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 70EB10312CE0CE6E0010706C /* GoogleSignIn */; };
+		70EB10342CE0CE6E0010706C /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 70EB10332CE0CE6E0010706C /* GoogleSignInSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,20 @@
 			);
 			target = 70EB0EEF2CDA39840010706C /* LocationApp */;
 		};
+		70EB102E2CE0CD780010706C /* Exceptions for "LocationApp" folder in "LocationAppTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"GoogleService-Info.plist",
+			);
+			target = 70EB0F052CDA39850010706C /* LocationAppTests */;
+		};
+		70EB102F2CE0CD780010706C /* Exceptions for "LocationApp" folder in "LocationAppUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"GoogleService-Info.plist",
+			);
+			target = 70EB0F0F2CDA39850010706C /* LocationAppUITests */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -55,6 +71,8 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				70EB0F182CDA39850010706C /* Exceptions for "LocationApp" folder in "LocationApp" target */,
+				70EB102E2CE0CD780010706C /* Exceptions for "LocationApp" folder in "LocationAppTests" target */,
+				70EB102F2CE0CD780010706C /* Exceptions for "LocationApp" folder in "LocationAppUITests" target */,
 			);
 			path = LocationApp;
 			sourceTree = "<group>";
@@ -81,9 +99,11 @@
 				70EB0FDF2CDEAB740010706C /* FirebaseStorageCombine-Community in Frameworks */,
 				70EB0FD72CDEAB740010706C /* FirebaseDatabase in Frameworks */,
 				70EB0FDB2CDEAB740010706C /* FirebaseFirestoreCombine-Community in Frameworks */,
+				70EB10342CE0CE6E0010706C /* GoogleSignInSwift in Frameworks */,
 				70EB0FDD2CDEAB740010706C /* FirebaseStorage in Frameworks */,
 				70EB0FD92CDEAB740010706C /* FirebaseFirestore in Frameworks */,
 				70EB0FD32CDEAB740010706C /* FirebaseAuthCombine-Community in Frameworks */,
+				70EB10322CE0CE6E0010706C /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +172,8 @@
 				70EB0FDA2CDEAB740010706C /* FirebaseFirestoreCombine-Community */,
 				70EB0FDC2CDEAB740010706C /* FirebaseStorage */,
 				70EB0FDE2CDEAB740010706C /* FirebaseStorageCombine-Community */,
+				70EB10312CE0CE6E0010706C /* GoogleSignIn */,
+				70EB10332CE0CE6E0010706C /* GoogleSignInSwift */,
 			);
 			productName = LocationApp;
 			productReference = 70EB0EF02CDA39840010706C /* LocationApp.app */;
@@ -237,6 +259,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				70EB0FCF2CDEAB740010706C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				70EB10302CE0CE6E0010706C /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 70EB0EF12CDA39840010706C /* Products */;
@@ -321,6 +344,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LocationApp/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To get your location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -348,6 +372,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LocationApp/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To get your location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -603,6 +628,14 @@
 				minimumVersion = 11.4.0;
 			};
 		};
+		70EB10302CE0CE6E0010706C /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -645,6 +678,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 70EB0FCF2CDEAB740010706C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		70EB10312CE0CE6E0010706C /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 70EB10302CE0CE6E0010706C /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		70EB10332CE0CE6E0010706C /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 70EB10302CE0CE6E0010706C /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

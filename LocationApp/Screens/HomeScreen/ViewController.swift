@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 
+
 class ViewController: UIViewController {
 
     
@@ -31,7 +32,7 @@ class ViewController: UIViewController {
     @IBAction func btnLoginClicked(_ sender: Any) {
 
         if txtEmail.text != "" && txtPassword.text != "" {
-            Auth.auth().signIn(withEmail: "deneme@gmail.com", password: "12345") { result, error in
+            Auth.auth().signIn(withEmail: "deneme@gmail.com", password: "123456") { result, error in
                 if let error {
                     Alert().showAlert(title: "Error", message: error.localizedDescription)
                 }
