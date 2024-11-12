@@ -17,6 +17,7 @@
 		70EB0FDF2CDEAB740010706C /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 70EB0FDE2CDEAB740010706C /* FirebaseStorageCombine-Community */; };
 		70EB10322CE0CE6E0010706C /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 70EB10312CE0CE6E0010706C /* GoogleSignIn */; };
 		70EB10342CE0CE6E0010706C /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 70EB10332CE0CE6E0010706C /* GoogleSignInSwift */; };
+		70EB106A2CE2119A0010706C /* SwiftAlertView in Frameworks */ = {isa = PBXBuildFile; productRef = 70EB10692CE2119A0010706C /* SwiftAlertView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 				70EB0FD12CDEAB740010706C /* FirebaseAuth in Frameworks */,
 				70EB0FD52CDEAB740010706C /* FirebaseCore in Frameworks */,
 				70EB0FDF2CDEAB740010706C /* FirebaseStorageCombine-Community in Frameworks */,
+				70EB106A2CE2119A0010706C /* SwiftAlertView in Frameworks */,
 				70EB0FD72CDEAB740010706C /* FirebaseDatabase in Frameworks */,
 				70EB0FDB2CDEAB740010706C /* FirebaseFirestoreCombine-Community in Frameworks */,
 				70EB10342CE0CE6E0010706C /* GoogleSignInSwift in Frameworks */,
@@ -174,6 +176,7 @@
 				70EB0FDE2CDEAB740010706C /* FirebaseStorageCombine-Community */,
 				70EB10312CE0CE6E0010706C /* GoogleSignIn */,
 				70EB10332CE0CE6E0010706C /* GoogleSignInSwift */,
+				70EB10692CE2119A0010706C /* SwiftAlertView */,
 			);
 			productName = LocationApp;
 			productReference = 70EB0EF02CDA39840010706C /* LocationApp.app */;
@@ -260,6 +263,7 @@
 			packageReferences = (
 				70EB0FCF2CDEAB740010706C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				70EB10302CE0CE6E0010706C /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				70EB10682CE2119A0010706C /* XCRemoteSwiftPackageReference "SwiftAlertView" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 70EB0EF12CDA39840010706C /* Products */;
@@ -636,6 +640,14 @@
 				minimumVersion = 8.0.0;
 			};
 		};
+		70EB10682CE2119A0010706C /* XCRemoteSwiftPackageReference "SwiftAlertView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dinhquan/SwiftAlertView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -688,6 +700,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 70EB10302CE0CE6E0010706C /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		70EB10692CE2119A0010706C /* SwiftAlertView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 70EB10682CE2119A0010706C /* XCRemoteSwiftPackageReference "SwiftAlertView" */;
+			productName = SwiftAlertView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

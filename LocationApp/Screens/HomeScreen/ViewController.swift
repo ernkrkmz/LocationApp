@@ -7,7 +7,7 @@
 
 import UIKit
 import FirebaseAuth
-
+import SwiftAlertView
 
 class ViewController: UIViewController {
 
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func btnLoginClicked(_ sender: Any) {
-
+// TODO: email sifre sil duzelt
         if txtEmail.text != "" && txtPassword.text != "" {
             Auth.auth().signIn(withEmail: "deneme@gmail.com", password: "123456") { result, error in
                 if let error {
@@ -38,8 +38,14 @@ class ViewController: UIViewController {
                 }
                 else { self.performSegue(withIdentifier: "toTabbar", sender: nil) }
             }
+            
         }else {
-            Alert().showAlert(title: "Empty Fields", message: "Please fill in all fields")
+
+            SwiftAlertView.show(title: "Empty Fields", message: "Please fill in all fields", buttonTitles: "OK")
+            Task{
+                await FirebaseManager().fetchLocations()
+                
+            }
         }
         
     }

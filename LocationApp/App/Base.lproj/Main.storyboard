@@ -238,14 +238,25 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="803"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnl-gP-RvA">
+                                <rect key="frame" x="336" y="67" width="36" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
+                                <connections>
+                                    <segue destination="hMT-eH-9It" kind="show" identifier="toAddLocationVC" id="yum-qX-73K"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="e5N-fX-Whb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="MGE-9T-zwU" firstAttribute="bottom" secondItem="e5N-fX-Whb" secondAttribute="bottom" id="0Ah-HH-EHn"/>
                             <constraint firstItem="MGE-9T-zwU" firstAttribute="leading" secondItem="e5N-fX-Whb" secondAttribute="leading" id="3Au-LI-7eA"/>
+                            <constraint firstItem="jnl-gP-RvA" firstAttribute="top" secondItem="e5N-fX-Whb" secondAttribute="top" constant="67" id="Ezk-0u-NU4"/>
                             <constraint firstItem="MGE-9T-zwU" firstAttribute="top" secondItem="e5N-fX-Whb" secondAttribute="top" id="GBK-mr-A3V"/>
                             <constraint firstItem="MGE-9T-zwU" firstAttribute="centerX" secondItem="xN4-YD-4QI" secondAttribute="centerX" id="fSt-eS-lHT"/>
+                            <constraint firstItem="jnl-gP-RvA" firstAttribute="leading" secondItem="e5N-fX-Whb" secondAttribute="leading" constant="336" id="r6G-yi-s3h"/>
+                            <constraint firstItem="e5N-fX-Whb" firstAttribute="trailing" secondItem="jnl-gP-RvA" secondAttribute="trailing" constant="21" id="sHy-Dz-cAA"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" selectedImage="pin.circle" catalog="system" id="WHh-mj-Wvp">
@@ -253,11 +264,28 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="mapView" destination="MGE-9T-zwU" id="u7K-QR-6Nu"/>
+                        <segue destination="hMT-eH-9It" kind="show" identifier="toAddLocationVC" id="Flu-On-KDV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xK9-wk-vii" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1576" y="411"/>
+            <point key="canvasLocation" x="1574.8091603053435" y="410.56338028169017"/>
+        </scene>
+        <!--Location DetailVC-->
+        <scene sceneID="9rb-kf-f4R">
+            <objects>
+                <viewController id="hMT-eH-9It" customClass="LocationDetailVC" customModule="LocationApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gzO-u8-KkW">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="kVt-dA-yhe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2Rk-ax-ahU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CdI-Bb-4Us" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2801" y="513"/>
         </scene>
         <!--Social-->
         <scene sceneID="TSS-hv-gTn">
@@ -340,6 +368,9 @@
             <point key="canvasLocation" x="699" y="-321"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="yum-qX-73K"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Bg" width="4480" height="6720"/>
         <image name="bg_register" width="5001" height="3335"/>
@@ -347,6 +378,7 @@
         <image name="google_icon" width="32" height="32"/>
         <image name="pin" width="512" height="512"/>
         <image name="pin.circle" catalog="system" width="128" height="123"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="shareplay" catalog="system" width="128" height="75"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
