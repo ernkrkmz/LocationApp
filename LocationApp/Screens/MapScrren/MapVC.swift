@@ -21,6 +21,7 @@ class MapVC: UIViewController , MKMapViewDelegate , CLLocationManagerDelegate{
     var titleText = ""
     var subtitleText = ""
     
+    @IBOutlet weak var btnAdd: UIButton!
     var locationList : [LocationModel] = []
 
     override func viewDidLoad() {
@@ -31,8 +32,13 @@ class MapVC: UIViewController , MKMapViewDelegate , CLLocationManagerDelegate{
                 print("locationlist empty!!")
                 return
             }
+            
+            let reuseID = "annotationid"
+            var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID) as? MKMarkerAnnotationView
+            pinView?.canShowCallout = false
+            
             for location in locationList {
-                let annotation = MKPointAnnotation()
+                let annotation = pinView?.annotation! as? MKPointAnnotation ?? MKPointAnnotation()
                 annotation.title = location.title
                 annotation.subtitle = location.subtitle
                 
@@ -47,7 +53,41 @@ class MapVC: UIViewController , MKMapViewDelegate , CLLocationManagerDelegate{
         
     }
     
-
+    @IBAction func btnAddClicked(_ sender: Any) {
+        
+        SwiftAlertView.show(title: "Save Location", message: "", buttonTitles: "Cancel","OK") {
+            alertView in
+            
+            alertView.titleLabel.textColor = .white
+            alertView.messageLabel.textColor = .white
+            alertView.separatorColor = .white
+            alertView.style = .dark
+            alertView.addTextField { textField in
+                textField.placeholder = "Title"
+            }
+            alertView.addTextField { textField in
+                textField.placeholder = "Comment"
+            }
+            alertView.isDismissOnActionButtonClicked = false
+            alertView.isEnabledValidationLabel = true
+            
+        }
+        .onButtonClicked { alertView, btnIndex in
+            guard let title = alertView.textField(at: 0)?.text else { return }
+            let subtitle = alertView.textField(at: 1)?.text ?? ""
+            
+            
+            Task {
+                await FirebaseManager().saveLocation(titleText: title, subtitleText: subtitle, longitude: self.selectedLongitude, latitude: self.selectedLatitude)
+                alertView.dismiss()
+                SwiftAlertView.show(title:"Location Saved", buttonTitles: "OK") { alertView in
+                    alertView.style = .dark
+                }
+            }
+            
+        }
+    }
+    
     
 }
 
@@ -65,6 +105,7 @@ extension MapVC {
         
     }
     
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = CLLocationCoordinate2D(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude)
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
@@ -79,9 +120,11 @@ extension MapVC {
         let getGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(chooseLocation(gesture: )))
         getGestureRecognizer.minimumPressDuration = 2
         self.mapView.addGestureRecognizer(getGestureRecognizer)
+        
     }
     
     @objc func chooseLocation(gesture: UILongPressGestureRecognizer) {
+
         if gesture.state == .began {
             let location = gesture.location(in: self.mapView)
             let coordinate = self.mapView.convert(location, toCoordinateFrom: self.mapView)
@@ -100,15 +143,25 @@ extension MapVC {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let reuseID = "myAnnotation"
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID) as? MKPinAnnotationView
+
+        if annotation.title == nil {
+           
+            if pinView == nil {
+                
+                pinView = MKPinAnnotationView(annotation: annotation , reuseIdentifier: reuseID)
+                pinView?.canShowCallout = true
+                
+                let button = UIButton(type: .contactAdd)
+                pinView?.rightCalloutAccessoryView = button
+                
+            }else {
+                pinView?.annotation = annotation
+            }
+            return pinView
+        }
         
         if pinView == nil {
-            
             pinView = MKPinAnnotationView(annotation: annotation , reuseIdentifier: reuseID)
-            pinView?.canShowCallout = true
-            
-            let button = UIButton(type: .contactAdd)
-            pinView?.rightCalloutAccessoryView = button
-            
         }else {
             pinView?.annotation = annotation
         }

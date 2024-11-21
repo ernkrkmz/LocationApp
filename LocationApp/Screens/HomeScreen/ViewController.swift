@@ -30,9 +30,9 @@ class ViewController: UIViewController {
     }
 
     @IBAction func btnLoginClicked(_ sender: Any) {
-// TODO: email sifre sil duzelt
+// TODO: force unwrap at line 35
         if txtEmail.text != "" && txtPassword.text != "" {
-            Auth.auth().signIn(withEmail: "deneme@gmail.com", password: "123456") { result, error in
+            Auth.auth().signIn(withEmail: txtEmail.text!, password: txtPassword.text!) { result, error in
                 if let error {
                     Alert().showAlert(title: "Error", message: error.localizedDescription)
                 }

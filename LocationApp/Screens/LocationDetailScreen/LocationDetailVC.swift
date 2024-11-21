@@ -17,8 +17,8 @@ class LocationDetailVC: UIViewController {
     @IBOutlet weak var txtComment: UITextField!
     
     @IBOutlet weak var btnAddPhoto: UIButton!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var btnSave: UIButton!
+    
+    
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -30,12 +30,14 @@ class LocationDetailVC: UIViewController {
         super.viewDidLoad()
         setupMap()
         addGestureRecognizer()
+        
+        txtTitle.text = globalSelectedLocation?.title
+        txtComment.text = globalSelectedLocation?.subtitle
     }
     
     @IBAction func btnAddPhotoClicked(_ sender: Any) {
     }
-    @IBAction func btnSaveClicked(_ sender: Any) {
-    }
+    
     
 }
 
@@ -48,12 +50,18 @@ extension LocationDetailVC: MKMapViewDelegate , CLLocationManagerDelegate{
         self.LocationManager.requestWhenInUseAuthorization()
         self.LocationManager.startUpdatingLocation()
         
+        let annotation = MKPointAnnotation()
+        let location = CLLocationCoordinate2D(latitude: Double(globalSelectedLocation!.Latitude) ?? 0.0, longitude: Double(globalSelectedLocation!.Longitude) ?? 0.0)
+        annotation.coordinate = location
+        annotation.title = globalSelectedLocation?.title ?? ""
+        annotation.subtitle = globalSelectedLocation?.subtitle ?? ""
         
+        mapView.addAnnotation(annotation)
         
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = CLLocationCoordinate2D(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude)
+        let location = CLLocationCoordinate2D(latitude: Double(globalSelectedLocation!.Latitude) ?? locations[0].coordinate.latitude, longitude: Double(globalSelectedLocation!.Longitude) ?? locations[0].coordinate.longitude)
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         let region = MKCoordinateRegion(center: location, span: span)
         mapView.setRegion(region, animated: true)

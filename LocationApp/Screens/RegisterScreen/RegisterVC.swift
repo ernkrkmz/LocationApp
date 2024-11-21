@@ -20,12 +20,12 @@ class RegisterVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
     
     @IBAction func btnRegisterClicked(_ sender: Any) {
 
-        //    TODO: succes uyarisini göstermiyor
+        //    TODO: succes alert did not shown
         if txtEmail.text != "" && txtPassword.text != "" && txtConfirmPass.text != "" {
             Auth.auth().createUser(withEmail: txtEmail.text!, password: txtPassword.text!) { result, error in
                 if let error {
